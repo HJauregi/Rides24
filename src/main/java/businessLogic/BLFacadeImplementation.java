@@ -9,6 +9,7 @@ import javax.jws.WebService;
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Ride;
+import domain.User;
 import domain.Driver;
 import exceptions.RideMustBeLaterThanTodayException;
 import exceptions.RideAlreadyExistException;
@@ -119,5 +120,12 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 	}
 
+    public User login(String name,String password) {
+    	dbManager.open();
+    	dbManager.initializeDB();
+    	User u = login(name, password);
+		dbManager.close();
+		return u;
+    }
 }
 

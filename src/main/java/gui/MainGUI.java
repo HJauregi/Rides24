@@ -30,6 +30,7 @@ public class MainGUI extends JFrame {
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
+	private JButton jButtonExample = null;
 
     private static BLFacade appFacadeInterface;
 	
@@ -114,11 +115,23 @@ public class MainGUI extends JFrame {
 			}
 		});
 		
+		
+		jButtonExample= new JButton();
+		jButtonExample.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QueryRides"));
+		jButtonExample.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				JFrame a = new FindRidesGUI();
+
+				a.setVisible(true);
+			}
+		});
+		
 		jContentPane = new JPanel();
-		jContentPane.setLayout(new GridLayout(4, 1, 0, 0));
+		jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
 		jContentPane.add(jLabelSelectOption);
 		jContentPane.add(jButtonCreateQuery);
 		jContentPane.add(jButtonQueryQueries);
+		jContentPane.add(jButtonExample);
 		jContentPane.add(panel);
 		
 		
